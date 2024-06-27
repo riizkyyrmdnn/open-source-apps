@@ -1,0 +1,14 @@
+@mixin display($display, $center: center, $align: center, $gap: 0, $flexwrap: false, $flexcolumn: false, $gridtemplate: false, $columns: none)
+    justify-content: $center
+    align-items: $align
+    gap: $gap
+    @if $display == flex or $display == inline-flex
+        display: $display
+        @if $flexwrap
+            flex-wrap: wrap
+        @if $flexcolumn
+            flex-direction: column
+    @else if $display == grid
+        display: $display
+        @if $gridtemplate
+            grid-template-columns: $columns
